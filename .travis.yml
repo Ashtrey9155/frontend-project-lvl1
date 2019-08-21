@@ -1,0 +1,13 @@
+---
+
+language: node_js
+node_js:
+  - node
+
+script:
+  - make lint
+  - test
+
+notifications:
+  email:
+    - ashtrey.a@gmail.com
