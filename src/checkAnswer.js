@@ -2,9 +2,9 @@
 
 const checkAnswer = (number) => {
   if (number % 2 === 0) {
-    return 'Yes';
+    return 'yes';
   }
-  return 'No';
+  return 'no';
 };
 
 export default checkAnswer;
