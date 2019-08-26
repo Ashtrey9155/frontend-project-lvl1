@@ -30,9 +30,8 @@ const game = () => {
     console.log('Correct!\n');
     count += 1;
     game();
-  } else {
-    return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, Bill!`);
   }
+  return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, Bill!`);
 };
 
 game();
