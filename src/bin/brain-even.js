@@ -7,7 +7,7 @@ import checkAnswer from '../checkAnswer';
 console.log('\nWelcome to the Brain Games! \nAnswer "yes" if number even otherwise answer "no".\n');
 
 const name = index();
-let count = 0;
+// let count = 0;
 console.log(`Hello, ${name}`);
 
 // number = random();
@@ -17,7 +17,7 @@ console.log(`Hello, ${name}`);
 
 // console.log('\nAnsver: ' + answer);
 
-const game = () => {
+const game = (count) => {
   if (count === 3) {
     // console.log('Correct!\n');
     return console.log(`Congratulations, ${name}`);
@@ -26,12 +26,13 @@ const game = () => {
   console.log(`\nQuestion: ${randomNumber}`);
   const answer = readlineSync.question('\nYour answer: ');
   const correctAnswer = checkAnswer(randomNumber);
-  if (answer === correctAnswer) {
-    console.log('Correct!\n');
-    count += 1;
-    game();
+  if (answer !== correctAnswer) {
+    return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
   }
-  return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, Bill!`);
+  console.log('Correct!\n');
+  // count += 1;
+  // game();
+  return game(count + 1);
 };
 
-game();
+game(0);
