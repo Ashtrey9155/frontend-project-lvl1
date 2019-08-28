@@ -2,9 +2,10 @@
 import readlineSync from 'readline-sync';
 import index from '../index';
 import random from '../random';
-import checkAnswer from '../checkAnswer';
 import hello from '../hello';
-import title from '../titleBrainEven';
+import title from '../titleBrainCalc';
+import randomSymbols from '../randomSymbols';
+import checkAnswer from '../checkAnswerCalc';
 import wrongAnswer from '../incorrectAnswer';
 
 hello();
@@ -16,10 +17,12 @@ const game = (count) => {
   if (count === 3) {
     return console.log(`Congratulations, ${name}`);
   }
-  const randomNumber = random();
-  console.log(`\nQuestion: ${randomNumber}`);
+  const randomNumber1 = random();
+  const randomNumber2 = random();
+  const randomSymbol = randomSymbols();
+  console.log(`\nQuestion: ${randomNumber1} ${randomSymbol} ${randomNumber2}`);
   const answer = readlineSync.question('\nYour answer: ');
-  const correctAnswer = checkAnswer(randomNumber);
+  const correctAnswer = checkAnswer(randomNumber1, randomNumber2, randomSymbol);
   if (answer !== correctAnswer) {
     return wrongAnswer(answer, correctAnswer, name);
   }
