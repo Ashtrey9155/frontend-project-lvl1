@@ -5,3 +5,5 @@
 [![Build Status](https://travis-ci.org/Ashtrey9155/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/Ashtrey9155/frontend-project-lvl1)
 
 [![asciicast](https://asciinema.org/a/HVjPlH4madhut4Br2mKboVyiL.svg)](https://asciinema.org/a/HVjPlH4madhut4Br2mKboVyiL)
+
+[![asciicast](https://asciinema.org/a/DPpo01PYRH9rC8VWHIOwcohmF.svg)](https://asciinema.org/a/DPpo01PYRH9rC8VWHIOwcohmF)
