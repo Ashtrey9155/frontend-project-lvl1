@@ -15,3 +15,6 @@
 
 ***Brain-game***: progression
 [![asciicast](https://asciinema.org/a/A9n4dcYzr3arCsomFh4NlFuqR.svg)](https://asciinema.org/a/A9n4dcYzr3arCsomFh4NlFuqR)
+
+***Brain-game***: prime
+[![asciicast](https://asciinema.org/a/2pM84XMvz24flcBfHGj1B4RTl.svg)](https://asciinema.org/a/2pM84XMvz24flcBfHGj1B4RTl)
