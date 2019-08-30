@@ -3,11 +3,11 @@ import readlineSync from 'readline-sync';
 import index from '../index';
 import random from '../random';
 import hello from '../hello';
-import title from '../titleBrainGcd';
-import checkAnswer from '../checkAnswerGcd';
+import title from '../titleBrainProgression';
+import checkAnswer from '../chekAnswerProgression';
 import wrongAnswer from '../incorrectAnswer';
 
-const maxCountToRandom = 50;
+const maxCountToRandom = 10;
 hello();
 title();
 const name = index();
@@ -17,13 +17,13 @@ const game = (count) => {
   if (count === 3) {
     return console.log(`Congratulations, ${name}`);
   }
-  const randomNumber1 = random(maxCountToRandom);
-  const randomNumber2 = random(maxCountToRandom);
-  console.log(`\nQuestion: ${randomNumber1} ${randomNumber2}`);
+  const randomNumber = random(maxCountToRandom);
+  // const correctAnswerChar = checkAnswer(randomNumber, 1);
+  const correctAnswer = checkAnswer(randomNumber);
+  console.log(`\nQuestion: ${correctAnswer[1]}`);
   const answer = readlineSync.question('\nYour answer: ');
-  const correctAnswer = checkAnswer(randomNumber1, randomNumber2);
-  if (answer !== correctAnswer) {
-    return wrongAnswer(answer, correctAnswer, name);
+  if (answer !== correctAnswer[0].toString()) {
+    return wrongAnswer(answer, correctAnswer[0], name);
   }
   console.log('Correct!\n');
 

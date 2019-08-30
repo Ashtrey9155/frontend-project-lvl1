@@ -8,6 +8,7 @@ import randomSymbols from '../randomSymbols';
 import checkAnswer from '../checkAnswerCalc';
 import wrongAnswer from '../incorrectAnswer';
 
+const maxCountToRandom = 50;
 hello();
 title();
 const name = index();
@@ -17,8 +18,8 @@ const game = (count) => {
   if (count === 3) {
     return console.log(`Congratulations, ${name}`);
   }
-  const randomNumber1 = random();
-  const randomNumber2 = random();
+  const randomNumber1 = random(maxCountToRandom);
+  const randomNumber2 = random(maxCountToRandom);
   const randomSymbol = randomSymbols();
   console.log(`\nQuestion: ${randomNumber1} ${randomSymbol} ${randomNumber2}`);
   const answer = readlineSync.question('\nYour answer: ');
