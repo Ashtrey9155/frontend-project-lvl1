@@ -12,3 +12,6 @@
 
 ***Brain-game***: gcd
 [![asciicast](https://asciinema.org/a/JQjHTp99sfYAQcByktOoU7kAS.svg)](https://asciinema.org/a/JQjHTp99sfYAQcByktOoU7kAS)
+
+***Brain-game***: progression
+[![asciicast](https://asciinema.org/a/A9n4dcYzr3arCsomFh4NlFuqR.svg)](https://asciinema.org/a/A9n4dcYzr3arCsomFh4NlFuqR)
