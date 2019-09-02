@@ -3,13 +3,19 @@ import readlineSync from 'readline-sync';
 import index from '../index';
 import random from '../random';
 import hello from '../hello';
-import title from '../titleBrainGcd';
-import checkAnswer from '../checkAnswerGcd';
 import wrongAnswer from '../incorrectAnswer';
+
+const returnGcd = (a, b) => {
+  if (!b) {
+    return a;
+  }
+
+  return returnGcd(b, a % b).toString();
+};
 
 const maxCountToRandom = 50;
 hello();
-title();
+console.log('Find the greatest common divisor of given numbers.\n');
 const name = index();
 console.log(`Hello, ${name}`);
 
@@ -21,7 +27,7 @@ const game = (count) => {
   const randomNumber2 = random(maxCountToRandom);
   console.log(`\nQuestion: ${randomNumber1} ${randomNumber2}`);
   const answer = readlineSync.question('\nYour answer: ');
-  const correctAnswer = checkAnswer(randomNumber1, randomNumber2);
+  const correctAnswer = returnGcd(randomNumber1, randomNumber2);
   if (answer !== correctAnswer) {
     return wrongAnswer(answer, correctAnswer, name);
   }

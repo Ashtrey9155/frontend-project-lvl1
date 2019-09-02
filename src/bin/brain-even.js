@@ -2,14 +2,19 @@
 import readlineSync from 'readline-sync';
 import index from '../index';
 import random from '../random';
-import checkAnswer from '../checkAnswer';
 import hello from '../hello';
-import title from '../titleBrainEven';
 import wrongAnswer from '../incorrectAnswer';
+
+const isEven = (number) => {
+  if (number % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
+};
 
 const maxCountToRandom = 50;
 hello();
-title();
+console.log('Answer "yes" if number even otherwise answer "no".\n');
 const name = index();
 console.log(`Hello, ${name}`);
 
@@ -20,7 +25,7 @@ const game = (count) => {
   const randomNumber = random(maxCountToRandom);
   console.log(`\nQuestion: ${randomNumber}`);
   const answer = readlineSync.question('\nYour answer: ');
-  const correctAnswer = checkAnswer(randomNumber);
+  const correctAnswer = isEven(randomNumber);
   if (answer !== correctAnswer) {
     return wrongAnswer(answer, correctAnswer, name);
   }
