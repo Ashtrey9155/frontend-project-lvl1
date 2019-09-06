@@ -21,6 +21,7 @@
   },
   "author": "Shipilov Aleksandr",
   "license": "ISC",
+  "homepage": "https://github.com/Ashtrey9155/frontend-project-lvl1/blob/master/README.md",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
