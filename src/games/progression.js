@@ -4,7 +4,6 @@ import game from './engine';
 const lengthOfProgression = 10;
 
 const getProgression = (first, length, step) => {
-
   const iter = (progression, count) => {
     if (length === count + 1) {
       return progression;
