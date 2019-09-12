@@ -4,25 +4,12 @@ import game from './engine';
 export default () => {
   const maxCountOfSymbols = 3;
   const maxCountRandom = 50;
-
-  const getRandomSymbol = () => {
-    const idSymbol = random(maxCountOfSymbols);
-    switch (idSymbol) {
-      case 1:
-        return '+';
-      case 2:
-        return '-';
-      case 3:
-        return '*';
-      default:
-        return '/';
-    }
-  };
+  const listSymbols = ['', '+', '-', '*'];
 
   const getResultExpression = () => {
     const number1 = random(maxCountRandom);
     const number2 = random(maxCountRandom);
-    const symbol = getRandomSymbol();
+    const symbol = listSymbols[random(maxCountOfSymbols)];
     const result = [];
     result.push(`${number1} ${symbol} ${number2}`);
     switch (symbol) {
@@ -41,7 +28,7 @@ export default () => {
     }
   };
 
-  const ruleGame = 'What is the result of the expression?\n';
+  const ruleGame = 'What is the result of the expression?';
 
   game(ruleGame, getResultExpression);
 };

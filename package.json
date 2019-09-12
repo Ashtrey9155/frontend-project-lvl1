@@ -19,6 +19,11 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
+  "keywords": [
+    "Hexlet",
+    "First project",
+    "brain-games"
+  ],
   "author": "Shipilov Aleksandr",
   "license": "ISC",
   "homepage": "https://github.com/Ashtrey9155/frontend-project-lvl1/blob/master/README.md",

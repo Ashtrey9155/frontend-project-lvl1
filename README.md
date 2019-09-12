@@ -1,5 +1,3 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/cffd7d0c351fdcbaba44/maintainability)](https://codeclimate.com/github/Ashtrey9155/frontend-project-lvl1/maintainability)
 
 [![Build Status](https://travis-ci.org/Ashtrey9155/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/Ashtrey9155/frontend-project-lvl1)
