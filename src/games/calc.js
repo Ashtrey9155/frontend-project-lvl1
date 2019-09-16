@@ -1,15 +1,17 @@
 import random from './random';
 import game from './engine';
 
-export default () => {
-  const maxCountOfSymbols = 3;
-  const maxCountRandom = 50;
-  const listSymbols = ['', '+', '-', '*'];
+const gameDescription = 'What is the result of the expression?';
+const minCountRandom = 0;
+const maxCountRandom = 50;
+const listSymbols = ['+', '-', '*'];
+const maxCountOfSymbols = listSymbols.length;
 
+export default () => {
   const getResultExpression = () => {
-    const number1 = random(maxCountRandom);
-    const number2 = random(maxCountRandom);
-    const symbol = listSymbols[random(maxCountOfSymbols)];
+    const number1 = random(minCountRandom, maxCountRandom);
+    const number2 = random(minCountRandom, maxCountRandom);
+    const symbol = listSymbols[random(minCountRandom, maxCountOfSymbols - 1)];
     const result = [];
     result.push(`${number1} ${symbol} ${number2}`);
     switch (symbol) {
@@ -23,12 +25,9 @@ export default () => {
         result.push((number1 * number2).toString());
         return result;
       default:
-        result.push((number1 / number2).toString());
-        return result;
+        return '';
     }
   };
 
-  const ruleGame = 'What is the result of the expression?';
-
-  game(ruleGame, getResultExpression);
+  game(gameDescription, getResultExpression);
 };

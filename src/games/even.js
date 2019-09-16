@@ -1,6 +1,8 @@
 import random from './random';
 import game from './engine';
 
+const maxCountToRandom = 50;
+const gameDescription = 'Answer "yes" if number is even otherwise answer "no".';
 const isEven = (number) => {
   if (number % 2 === 0) {
     return true;
@@ -9,23 +11,17 @@ const isEven = (number) => {
 };
 
 export default () => {
-  const maxCountToRandom = 50;
-
   const getResultEven = () => {
     const question = random(maxCountToRandom);
-    const result = [question];
     let answer = '';
     if (isEven(question)) {
       answer = 'yes';
-      result.push(answer);
-      return result;
+    } else {
+      answer = 'no';
     }
-    answer = 'no';
-    result.push(answer);
+    const result = [question, answer];
     return result;
   };
 
-  const ruleGame = 'Answer "yes" if number is even otherwise answer "no".';
-
-  game(ruleGame, getResultEven);
+  game(gameDescription, getResultEven);
 };

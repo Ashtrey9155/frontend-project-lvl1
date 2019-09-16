@@ -1,3 +1,1 @@
-const func = (maxCountToRandom) => Math.floor(Math.random() * maxCountToRandom) + 1;
-
-export default func;
+export default (min = 0, max = 3) => Math.floor(Math.random() * (max - min + 1) + min);

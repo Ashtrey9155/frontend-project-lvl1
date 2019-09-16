@@ -1,27 +1,27 @@
 import random from './random';
 import game from './engine';
 
+const maxCountToRandom = 100;
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const isPrime = (n) => {
+  if (n < 2) {
+    return false;
+  }
+
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 export default () => {
-  const maxCountToRandom = 100;
-
-  const isPrime = (number = random(maxCountToRandom)) => {
-    const result = [`${number}`];
-    if (number < 2) {
-      result.push('no');
-      return result;
-    }
-
-    for (let i = 2; i < number; i += 1) {
-      if (number % i === 0) {
-        result.push('no');
-        return result;
-      }
-    }
-    result.push('yes');
+  const answer = () => {
+    const number = random(maxCountToRandom);
+    const result = isPrime(number) ? [`${number}`, 'yes'] : [`${number}`, 'no'];
     return result;
   };
-
-  const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-  game(ruleGame, isPrime);
+  game(gameDescription, answer);
 };

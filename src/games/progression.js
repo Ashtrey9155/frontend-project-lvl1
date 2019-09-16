@@ -2,6 +2,8 @@ import random from './random';
 import game from './engine';
 
 const lengthOfProgression = 10;
+const maxCountToRandom = 10;
+const gameDescription = 'What number is missing in the progression?';
 
 const getProgression = (first, length, step) => {
   const iter = (progression, count) => {
@@ -12,35 +14,32 @@ const getProgression = (first, length, step) => {
     return iter(progression, count + 1);
   };
 
-  const result = iter(first, 0);
+  const result = iter([first], 0);
   return result;
 };
 
 export default () => {
-  const maxCountToRandom = 10;
-
-  const getQuestions = (progress, changeNum) => {
+  const getQuestions = (progress, num) => {
     let result = '';
     for (let i = 0; i < lengthOfProgression; i += 1) {
-      if (changeNum - 1 === i) {
-        result += ' .. ';
+      if (num - 1 === i) {
+        result = `${result} ..`;
       } else {
-        result += ` ${progress[i]} `;
+        result = `${result} ${progress[i]}`;
       }
     }
     return result;
   };
 
-
   const getAnswer = (randomNumber = random(maxCountToRandom)) => {
     const result = [];
-    const newProgress = getProgression(random(50), lengthOfProgression, random(10));
+    const number = random(50);
+    const step = random(20);
+    const newProgress = getProgression(number, lengthOfProgression, step);
     const questions = getQuestions(newProgress, randomNumber);
     result.push(questions, `${newProgress[randomNumber - 1]}`);
     return result;
   };
 
-  const ruleGame = 'What number is missing in the progression?';
-
-  game(ruleGame, getAnswer);
+  game(gameDescription, getAnswer);
 };

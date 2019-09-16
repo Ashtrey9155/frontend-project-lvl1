@@ -1,7 +1,9 @@
 import random from './random';
 import game from './engine';
 
-const getSmallFactor = (number1, number2) => {
+const maxCountToRandom = 50;
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+const getLargestFactor = (number1, number2) => {
   const iter = (a, b) => {
     if (!b) {
       return a;
@@ -12,15 +14,11 @@ const getSmallFactor = (number1, number2) => {
 };
 
 export default () => {
-  const maxCountToRandom = 50;
-
   const returnGcd = (a = random(maxCountToRandom), b = random(maxCountToRandom)) => {
     const result = [`${a} ${b}`];
-    result.push(`${getSmallFactor(a, b)}`);
+    result.push(`${getLargestFactor(a, b)}`);
     return result;
   };
 
-  const ruleGame = 'Find the greatest common divisor of given numbers.';
-
-  game(ruleGame, returnGcd);
+  game(gameDescription, returnGcd);
 };
