@@ -1,32 +1,33 @@
-import random from './random';
-import game from './engine';
+import random from '../random';
+import game from '../engine';
 
 const gameDescription = 'What is the result of the expression?';
-const minCountRandom = 0;
-const maxCountRandom = 50;
-const listSymbols = ['+', '-', '*'];
-const maxCountOfSymbols = listSymbols.length;
+const min = 0;
+const max = 50;
+const mathSigns = ['+', '-', '*'];
+const maxCountOfSymbols = mathSigns.length;
 
 export default () => {
   const getResultExpression = () => {
-    const number1 = random(minCountRandom, maxCountRandom);
-    const number2 = random(minCountRandom, maxCountRandom);
-    const symbol = listSymbols[random(minCountRandom, maxCountOfSymbols - 1)];
-    const result = [];
-    result.push(`${number1} ${symbol} ${number2}`);
+    const number1 = random(min, max);
+    const number2 = random(min, max);
+    const symbol = mathSigns[random(min, maxCountOfSymbols - 1)];
+    const question = `${number1} ${symbol} ${number2}`;
+    let answer = '';
     switch (symbol) {
       case '+':
-        result.push((number1 + number2).toString());
-        return result;
+        answer = (number1 + number2).toString();
+        break;
       case '-':
-        result.push((number1 - number2).toString());
-        return result;
+        answer = (number1 - number2).toString();
+        break;
       case '*':
-        result.push((number1 * number2).toString());
-        return result;
+        answer = (number1 * number2).toString();
+        break;
       default:
-        return '';
+        answer = '';
     }
+    return [question, answer];
   };
 
   game(gameDescription, getResultExpression);

@@ -1,9 +1,10 @@
-import random from './random';
-import game from './engine';
+import random from '../random';
+import game from '../engine';
 
-const maxCountToRandom = 50;
+const min = 0;
+const max = 50;
 const gameDescription = 'Find the greatest common divisor of given numbers.';
-const getLargestFactor = (number1, number2) => {
+const gcd = (number1, number2) => {
   const iter = (a, b) => {
     if (!b) {
       return a;
@@ -14,11 +15,11 @@ const getLargestFactor = (number1, number2) => {
 };
 
 export default () => {
-  const returnGcd = (a = random(maxCountToRandom), b = random(maxCountToRandom)) => {
-    const result = [`${a} ${b}`];
-    result.push(`${getLargestFactor(a, b)}`);
-    return result;
+  const getConditions = (a = random(min, max), b = random(min, max)) => {
+    const question = [`${a} ${b}`];
+    const answer = (`${gcd(a, b)}`);
+    return [question, answer];
   };
 
-  game(gameDescription, returnGcd);
+  game(gameDescription, getConditions);
 };

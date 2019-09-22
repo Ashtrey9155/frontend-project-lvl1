@@ -1,45 +1,46 @@
-import random from './random';
-import game from './engine';
+import random from '../random';
+import game from '../engine';
 
 const lengthOfProgression = 10;
-const maxCountToRandom = 10;
+const min = 0;
+const max = 9;
 const gameDescription = 'What number is missing in the progression?';
 
 const getProgression = (first, length, step) => {
-  const iter = (progression, count) => {
-    if (length === count + 1) {
+  const iter = (progression, i, lengthOff) => {
+    if (lengthOff === 0) {
       return progression;
     }
-    progression.push(progression[count] + step);
-    return iter(progression, count + 1);
+    progression.push(progression[i] + step);
+    return iter(progression, i + 1, lengthOff - 1);
   };
 
-  const result = iter([first], 0);
+  const result = iter([first], 0, length - 1);
+  return result;
+};
+
+const getQuestions = (progress, num) => {
+  let result = '';
+  for (let i = 0; i < progress.length; i += 1) {
+    if (num === i) {
+      result += '.. ';
+    } else {
+      result += `${progress[i]} `;
+    }
+  }
   return result;
 };
 
 export default () => {
-  const getQuestions = (progress, num) => {
-    let result = '';
-    for (let i = 0; i < lengthOfProgression; i += 1) {
-      if (num - 1 === i) {
-        result = `${result} ..`;
-      } else {
-        result = `${result} ${progress[i]}`;
-      }
-    }
-    return result;
+  const getConditions = () => {
+    const position = random(min, max);
+    const firstElement = random(0, 50);
+    const step = random(0, 20);
+    const progression = getProgression(firstElement, lengthOfProgression, step);
+    const question = getQuestions(progression, position);
+    const answer = `${progression[position]}`;
+    return [question, answer];
   };
 
-  const getAnswer = (randomNumber = random(maxCountToRandom)) => {
-    const result = [];
-    const number = random(50);
-    const step = random(20);
-    const newProgress = getProgression(number, lengthOfProgression, step);
-    const questions = getQuestions(newProgress, randomNumber);
-    result.push(questions, `${newProgress[randomNumber - 1]}`);
-    return result;
-  };
-
-  game(gameDescription, getAnswer);
+  game(gameDescription, getConditions);
 };
