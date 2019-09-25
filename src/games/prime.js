@@ -17,11 +17,12 @@ const isPrime = (n) => {
   return true;
 };
 
+const getGameRoundInfo = () => {
+  const question = random(min, max);
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return [question, answer];
+};
+
 export default () => {
-  const getConditions = () => {
-    const question = random(min, max);
-    const answer = isPrime(question) ? 'yes' : 'no';
-    return [question, answer];
-  };
-  game(gameDescription, getConditions);
+  game(gameDescription, getGameRoundInfo);
 };

@@ -11,7 +11,6 @@ export default (ruleGame, getConditions) => {
       console.log(`Congratulations, ${name}!`);
       return;
     }
-    // const condition = getConditions();
     const [question, correctAnswer] = getConditions();
     console.log(`\nQuestion: ${question}`);
     const userAnswer = readlineSync.question('\nYour answer: ');

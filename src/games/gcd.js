@@ -4,7 +4,7 @@ import game from '../engine';
 const min = 0;
 const max = 50;
 const gameDescription = 'Find the greatest common divisor of given numbers.';
-const gcd = (number1, number2) => {
+const getGcd = (number1, number2) => {
   const iter = (a, b) => {
     if (!b) {
       return a;
@@ -14,12 +14,14 @@ const gcd = (number1, number2) => {
   return iter(number1, number2);
 };
 
-export default () => {
-  const getConditions = (a = random(min, max), b = random(min, max)) => {
-    const question = [`${a} ${b}`];
-    const answer = (`${gcd(a, b)}`);
-    return [question, answer];
-  };
+const getGameRoundInfo = () => {
+  const a = random(min, max);
+  const b = random(min, max);
+  const question = `${a} ${b}`;
+  const answer = `${getGcd(a, b)}`;
+  return [question, answer];
+};
 
-  game(gameDescription, getConditions);
+export default () => {
+  game(gameDescription, getGameRoundInfo);
 };
