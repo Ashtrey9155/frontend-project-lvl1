@@ -1,5 +1,5 @@
 import random from '../random';
-import game from '../engine';
+import play from '../engine';
 
 const min = 0;
 const max = 100;
@@ -24,5 +24,5 @@ const getGameRoundInfo = () => {
 };
 
 export default () => {
-  game(gameDescription, getGameRoundInfo);
+  play(gameDescription, getGameRoundInfo);
 };
