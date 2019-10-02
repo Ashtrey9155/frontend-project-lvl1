@@ -15,7 +15,7 @@ export default (ruleGame, getGameRoundData) => {
     console.log(`\nQuestion: ${question}`);
     const userAnswer = readlineSync.question('\nYour answer: ');
     if (userAnswer !== correctAnswer) {
-      console.log(`'${userAnswer}' is wrong answer ;(. `);
+      console.log(`'${userAnswer}' is wrong answer ;(.`);
       console.log(`Correct answer was '${correctAnswer}'. \nLet's try again, ${name}!`);
       return;
     }
